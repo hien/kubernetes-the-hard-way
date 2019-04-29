@@ -12,21 +12,22 @@ Download and install `cfssl` and `cfssljson` from the [cfssl repository](https:/
 ### OS X
 
 ```
-wget -q --show-progress --https-only --timestamping \
-  https://pkg.cfssl.org/R1.2/cfssl_darwin-amd64 \
-  https://pkg.cfssl.org/R1.2/cfssljson_darwin-amd64
+curl -o cfssl https://pkg.cfssl.org/R1.2/cfssl_darwin-amd64
+curl -o cfssljson https://pkg.cfssl.org/R1.2/cfssljson_darwin-amd64
 ```
 
 ```
-chmod +x cfssl_darwin-amd64 cfssljson_darwin-amd64
+chmod +x cfssl cfssljson
 ```
 
 ```
-sudo mv cfssl_darwin-amd64 /usr/local/bin/cfssl
+sudo mv cfssl cfssljson /usr/local/bin/
 ```
 
+Some OS X users may experience problems using the pre-built binaries in which case [Homebrew](https://brew.sh) might be a better option:
+
 ```
-sudo mv cfssljson_darwin-amd64 /usr/local/bin/cfssljson
+brew install cfssl
 ```
 
 ### Linux
@@ -74,7 +75,7 @@ The `kubectl` command line utility is used to interact with the Kubernetes API S
 ### OS X
 
 ```
-wget https://storage.googleapis.com/kubernetes-release/release/v1.7.4/bin/darwin/amd64/kubectl
+curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/darwin/amd64/kubectl
 ```
 
 ```
@@ -88,7 +89,7 @@ sudo mv kubectl /usr/local/bin/
 ### Linux
 
 ```
-wget https://storage.googleapis.com/kubernetes-release/release/v1.7.4/bin/linux/amd64/kubectl
+wget https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/linux/amd64/kubectl
 ```
 
 ```
@@ -101,7 +102,7 @@ sudo mv kubectl /usr/local/bin/
 
 ### Verification
 
-Verify `kubectl` version 1.7.4 or higher is installed:
+Verify `kubectl` version 1.12.0 or higher is installed:
 
 ```
 kubectl version --client
@@ -110,7 +111,7 @@ kubectl version --client
 > output
 
 ```
-Client Version: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.4", GitCommit:"793658f2d7ca7f064d2bdf606519f9fe1229c381", GitTreeState:"clean", BuildDate:"2017-08-17T08:48:23Z", GoVersion:"go1.8.3", Compiler:"gc", Platform:"darwin/amd64"}
+Client Version: version.Info{Major:"1", Minor:"12", GitVersion:"v1.12.0", GitCommit:"0ed33881dc4355495f623c6f22e7dd0b7632b7c0", GitTreeState:"clean", BuildDate:"2018-09-27T17:05:32Z", GoVersion:"go1.10.4", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
 Next: [Provisioning Compute Resources](03-compute-resources.md)
